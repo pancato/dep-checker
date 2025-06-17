@@ -1,7 +1,7 @@
 {
   "name": "@pancato/dep-checker",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packageManager": "pnpm@10.11.1",
   "description": "🪵 dep detector",
   "license": "MIT",
