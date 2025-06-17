@@ -1,5 +1,11 @@
 # @pancato/dep-checker
 
+## 1.0.0
+
+### Major Changes
+
+- basic function implementation
+
 ## 0.0.2
 
 ### Patch Changes

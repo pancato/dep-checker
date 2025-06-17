@@ -1,7 +1,7 @@
 {
   "name": "@pancato/dep-checker",
   "type": "module",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "packageManager": "pnpm@10.11.1",
   "description": "🪵 dep detector",
   "license": "MIT",
@@ -19,12 +19,15 @@
   },
   "sideEffects": false,
   "exports": {
-    ".": "./dist/index.mjs",
+    ".": "./dist/cli.mjs",
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.mts",
+  "main": "./dist/cli.mjs",
+  "module": "./dist/cli.mjs",
+  "types": "./dist/cli.d.mts",
+  "bin": {
+    "dep-check": "./bin/dep-checker.mjs"
+  },
   "files": [
     "dist"
   ],
@@ -40,6 +43,15 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks"
+  },
+  "dependencies": {
+    "@posva/prompts": "catalog:cli",
+    "ansis": "catalog:utils",
+    "cac": "catalog:cli",
+    "consola": "catalog:utils",
+    "execa": "catalog:utils",
+    "fast-glob": "catalog:utils",
+    "mlly": "catalog:utils"
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:cli",

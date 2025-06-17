@@ -5,5 +5,8 @@ export default config(
   {
     type: 'lib',
     pnpm: true,
+    rules: {
+      'no-console': 'off',
+    },
   },
 )
