@@ -1,0 +1,64 @@
+{
+  "name": "@pancato/dep-checker",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.11.1",
+  "description": "🪵 dep detector",
+  "license": "MIT",
+  "homepage": "https://github.com/pancato/dep-checker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pancato/dep-checker.git"
+  },
+  "bugs": "https://github.com/pancato/dep-checker/issues",
+  "keywords": [
+    "dep"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint",
+    "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
+    "prepublishOnly": "pnpm run ci",
+    "local-release": "changeset version && changeset publish",
+    "ci": "pnpm run build && pnpm run lint && pnpm run check-exports && pnpm run test",
+    "start": "tsx src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepare": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:cli",
+    "@arethetypeswrong/cli": "catalog:publish",
+    "@changesets/cli": "catalog:publish",
+    "@types/node": "catalog:types",
+    "eslint": "catalog:cli",
+    "lint-staged": "catalog:cli",
+    "simple-git-hooks": "catalog:cli",
+    "tinyexec": "catalog:utils",
+    "tsx": "catalog:cli",
+    "typescript": "catalog:cli",
+    "unbuild": "catalog:cli",
+    "vite": "catalog:cli",
+    "vitest": "catalog:testing",
+    "vitest-package-exports": "catalog:testing",
+    "yaml": "catalog:testing"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
